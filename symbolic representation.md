@@ -6,5 +6,9 @@
 	- Traversing grammar space: 1) We define a domain Ω_op for each operator op ∈ O, that op can act on. 2) After creating new grammar G', parameters have to be recomputed using Inside-Outside algorithm. 3) Every sequence produced by G has to guarantee a smooth, continuous trajectory within the statespace of the MPs. We restrict the grammar space G to only contain grammars that fulfill this continuity requirement. The restriction is achieved by limiting the domain Ω_op of each operator, such that if grammar G fulfills the continuity requirement any grammar G′resulting from an application of op on G also fulfills the requirement.
 	- Summary: Demonstrations are segmented to get primitives. Primitives are immutable. We start from a grammar prior. Each grammar is defined by terminals (A), non-terminals (V), rules (R) and starting symbols (S). Each rule has productions, each of which is a sequence. We apply operators to rules of the previous grammar to get new grammar. The operators are applied such that the new grammar can fit to all demonstrations. The operator changes the rules and non-terminals such that the new rules have new productions (sequences). The rules define how a tree will expand from the start symbols.
 
-2. [State representation learning for control: An overview](https://arxiv.org/pdf/1802.04181.pdf)
-	- 
+1. [State representation learning (SRL) for control: An overview](https://arxiv.org/pdf/1802.04181.pdf)
+	- SRL is a case of feature learning where the featuresto learn are low dimensional, evolve through time, and are influenced by actions or interactions.
+
+1. [Learning and reasoning with action-related places for robust mobile manipulation](https://www.jair.org/index.php/jair/article/download/10744/25663)
+
+1. [CRAM—A Cognitive Robot Abstract Machine for everyday manipulation in human environments](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5650146)
