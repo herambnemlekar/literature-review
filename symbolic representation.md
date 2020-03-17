@@ -7,7 +7,8 @@
 	- Summary: Demonstrations are segmented to get primitives. Primitives are immutable. We start from a grammar prior. Each grammar is defined by terminals (A), non-terminals (V), rules (R) and starting symbols (S). Each rule has productions, each of which is a sequence. We apply operators to rules of the previous grammar to get new grammar. The operators are applied such that the new grammar can fit to all demonstrations. The operator changes the rules and non-terminals such that the new rules have new productions (sequences). The rules define how a tree will expand from the start symbols.
 
 1. [State representation learning (SRL) for control: An overview](https://arxiv.org/pdf/1802.04181.pdf)
-	- SRL is a case of feature learning where the featuresto learn are low dimensional, evolve through time, and are influenced by actions or interactions.
+	- SRL is a case of feature learning where the featuresto learn are low dimensional, evolve through time, and are influenced by actions or interactions. SRL learns a mapping φ of the history of observation to the current state s_t=φ(o_{1:t}). 
+	- Difference: reduces the state space from S∈R^d to some S∈R^d' where d'<< d. While symbolic representation reduces state space to a set S∈Ω where |Ω|∈R.
 
 1. [Learning and reasoning with action-related places for robust mobile manipulation](https://www.jair.org/index.php/jair/article/download/10744/25663)
 
