@@ -10,7 +10,7 @@
 	- SRL is a case of feature learning where the featuresto learn are low dimensional, evolve through time, and are influenced by actions or interactions. SRL learns a mapping φ of the history of observation to the current state s_t=φ(o_{1:t}). 
 	- Difference: reduces the state space from S∈R^d to some S∈R^d' where d'<< d. While symbolic representation reduces state space to a set S∈Ω where |Ω|∈R.
 
-1. [Learning and reasoning with action-related places for robust mobile manipulation](https://www.jair.org/index.php/jair/article/download/10744/25663)
+1. [Learning and reasoning with action-related places for robust mobile manipulation](https://arxiv.org/pdf/1401.4599.pdf)
 	- Abstract: 1) Represent robot locations as a collection of positions each associated with a probability that a manipulation action will succeed from it. 2) ARPlace generated through xperience-based learning. 3) ARPlace updated based on new task information. 4) Least-commitment approach. Transformational planner optimizes symbolic plans.
 	- ARPlace: The probability of successful manipulation given the current estimate of object position (and robot positions).
 	- Planning: 1) RPL
