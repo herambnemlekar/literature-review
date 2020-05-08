@@ -61,13 +61,17 @@ User Behavior Analysis](https://dl.acm.org/doi/pdf/10.1145/2858036.2858107?downl
 1. *Anticipating human actions for collaboration in the presence of task and sensor uncertainty*
 
 1. Intention-Aware Motion Planning Using Learning Based Human Motion Prediction
-	 - 3D joint positions are tracked using OpenNI
+	 - 3D joint positions are tracked using OpenNI.
 	 - Next action predicted based on probabilities (not the most accurate way to say it, needs to be updated).
 
 1. Multimodal Probabilistic Model-Based Planning for Human-Robot Interaction
-	-  Conditional variational autoencoders
+	- Learn multimodal probability distributions over human actions and condition on interaction history as well as future robot actions.
+	- Conditional variational autoencoders - generative model of human driver behaviour.
+	- u(t+1) <= p(x(0:t), u(0:t), u_r(t+1))
+	- Full observability of all past states and actions.
+	- Real-time robot policy construction by massively parallel sampling of human responses to candidate robot actions.
+	- Calculate u_r(t+1:t+N) but execute only u_r(t+1) (like in MPC).
 
-1. 
 
 ## Learning human preference
 
