@@ -1,4 +1,4 @@
-## Learning and predict human preference and actions
+## Learning and predicting human preference and actions
 
 1. [PlanIt: A crowdsourcing approach for learning to plan paths from large scale preference feedback])(https://ieeexplore.ieee.org/abstract/document/7139281)
 
