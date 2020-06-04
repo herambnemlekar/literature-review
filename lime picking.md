@@ -7,3 +7,9 @@
 1. [Analysis of a motion planning problem for sweet-pepper harvesting in a dense obstacle environment](https://www.sciencedirect.com/science/article/pii/S1537511015001191)
 
 1. [RRT-based path planning for an intelligent litchi-picking manipulator](https://www.sciencedirect.com/science/article/pii/S0168169918303971)
+
+### Artificial Potential Field
+
+### RRT or similar
+
+### Others
