@@ -30,6 +30,10 @@
     - Combine RRT*-connect with APF to solve local minima problem of APF
     - Improve performance of RRT* by reducing its randomness with APF guiding the exploration
     - Particularly suited to narrow channels, which could be well suited for our case
+2. [Rapidly-Exploring Random Vines (RRV) for Motion Planning in Configuration Spaces with Narrow Passages](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/8460186)
+    - Improved RRT to work better in narrow corridors.
+    - Expands far less nodes than RRT or RRT connect and is significantly faster. From the experiments it seems that the cost is that is produces sub-optimal paths that are far worse than those produced by RRT.
+    - Need to read more in depth.
 
 ### Others
 1. [Robotic Path Planning Based on Improved Ant Colony Algorithm](https://link.springer.com/chapter/10.1007/978-3-030-22796-8_37)
@@ -38,3 +42,5 @@
 2. [Task and Motion Planning for Apple Harvesting Robot](https://www.sciencedirect.com/science/article/pii/S1474667015349922)
     - High level symbolic planning
     - Low level use sampling based planning, including RRT, RRTConnect, KPIECE etc.
+3. [Path planning and obstacle avoidance approaches for robot arm](https://ieeexplore.ieee.org/document/8105619)
+    - Use of Non Uniform Rational B-splines to make the path more smooth. 
