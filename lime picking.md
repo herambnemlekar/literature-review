@@ -9,7 +9,32 @@
 1. [RRT-based path planning for an intelligent litchi-picking manipulator](https://www.sciencedirect.com/science/article/pii/S0168169918303971)
 
 ### Artificial Potential Field
+1. [An Improved Artificial Potential Field Method Based on DWA and Path Optimization](https://ieeexplore.ieee.org/document/8996014)
+    - Use Dynamic Window Approach to solve local minima problem of APF
+2. [Trajectory Optimization of Pickup Manipulator in Obstacle Environment Based on Improved Artificial Potential Field Method](https://www.mdpi.com/2076-3417/10/3/935)
+    - Complete APF by increasing number of sub-target points and improving the obstacle repulsion field function.
+    - Applied on a 5-DoF robot
+3. [Robotic Arm Path Planning Based on Three-Dimensional Artificial Potential Field](https://ieeexplore.ieee.org/document/8571458)
+    - Using rotational repulsive field around obstacles instead of pushing robot directly away
+    - Another attempt to solve local minima problem
 
-### RRT or similar
+4. [Obstacle Avoidance for Mobile Robots Using Artificial Potential Field Approach with Simulated Annealing](https://ieeexplore.ieee.org/document/931933)
+    - Ancient paper (2001)
+    - Uses Simulated Annealing to escape from local minima
+5. [6-DOF Robotic Obstacle Avoidance Path Planning Based on Artificial Potential Field Method](https://ieeexplore.ieee.org/abstract/document/8768792)
+    - Similar to the apple picking paper, but is better written : )
+
+
+### RRT related
+1. [Bidirectional Potential Guided RRT* for Motion Planning](https://ieeexplore.ieee.org/document/8763966)
+    - Combine RRT*-connect with APF to solve local minima problem of APF
+    - Improve performance of RRT* by reducing its randomness with APF guiding the exploration
+    - Particularly suited to narrow channels, which could be well suited for our case
 
 ### Others
+1. [Robotic Path Planning Based on Improved Ant Colony Algorithm](https://link.springer.com/chapter/10.1007/978-3-030-22796-8_37)
+    - Interesting method but only applied to 2D discrete space
+    - Doesn't seem to be applicable since we have a continuous space
+2. [Task and Motion Planning for Apple Harvesting Robot](https://www.sciencedirect.com/science/article/pii/S1474667015349922)
+    - High level symbolic planning
+    - Low level use sampling based planning, including RRT, RRTConnect, KPIECE etc.
