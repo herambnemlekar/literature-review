@@ -16,6 +16,8 @@
 1. [Analysis of a motion planning problem for sweet-pepper harvesting in a dense obstacle environment](https://www.sciencedirect.com/science/article/pii/S1537511015001191)
 
 1. [RRT-based path planning for an intelligent litchi-picking manipulator](https://www.sciencedirect.com/science/article/pii/S0168169918303971)
+    - Branches are simplified to a series of cylinders. Therefore for collision detection, collision should be checked between: 6 cylinders of the robot x (no. of branches x no. of cylinders per branch).
+    - Limitation: Branches easy to model as cylinders in the litchi plant simulation as the branches are not heavily covered with leaves.
 
 1. [Path Planning for a Fruit Picking Manipulator](http://www.geyseco.es/geystiona/adjs/comunicaciones/304/C03090001.pdf)
 
