@@ -50,6 +50,9 @@
     - Improved RRT to work better in narrow corridors.
     - Expands far less nodes than RRT or RRT connect and is significantly faster. From the experiments it seems that the cost is that is produces sub-optimal paths that are far worse than those produced by RRT.
     - Need to read more in depth.
+3. [Potential guided directional-RRT* for accelerated motion planning in cluttered environments](https://ieeexplore.ieee.org/abstract/document/6617971)
+4. [Adaptive Potential guided directional-RRT](https://ieeexplore.ieee.org/abstract/document/6739744)
+5. [Potential functions based sampling heuristic for optimal path planning](https://link.springer.com/article/10.1007/s10514-015-9518-0)
 
 ### Others
 1. [Robotic Path Planning Based on Improved Ant Colony Algorithm](https://link.springer.com/chapter/10.1007/978-3-030-22796-8_37)
