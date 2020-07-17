@@ -63,3 +63,16 @@
     - Low level use sampling based planning, including RRT, RRTConnect, KPIECE etc.
 3. [Path planning and obstacle avoidance approaches for robot arm](https://ieeexplore.ieee.org/document/8105619)
     - Use of Non Uniform Rational B-splines to make the path more smooth. 
+
+### Benchmarks for Motion Planners
+1. [Comparing different sampling-based motion planners in multiple configuration spaces](https://www.diva-portal.org/smash/get/diva2:1214377/FULLTEXT01.pdf)
+
+1. [SR-RRT: Selective retraction-based RRT planner](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6224928)
+
+1. [A generic infrastructure for benchmarking motion planners](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6386228)
+
+1. [An efficient retraction-based RRT planner](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4543785)
+
+1. [Planners Benchmarking Documentation](https://readthedocs.org/projects/planners-benchmarking/downloads/pdf/latest/)
+
+1. [Benchmarking Motion Planning Algorithms](http://kavrakilab.org/publications/moll-sucan2015benchmarking-motion-planning.pdf)
