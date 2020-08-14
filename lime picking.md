@@ -3,17 +3,22 @@
     - Motivation: Agricultural tasks are handled manually despite the expensive and diminishing agricultural labour, physically demanding and time-consuming operations.
     - Challenge: Unstructured environment - different colours, shapes, sizes, textures, reflectance properties, uncertainty in environment, changing illumination and shadows, and occlusions.
     - Sensors & Cues: Single camera fixed on the robot or/and on the robot arm. Multiple cameras for stero vision to get depth. RGBD sesnors for depth. *Spectral imaging for recognition based on reflection, especially when fruit and foliage have same colour. However it is sensitive to illumination, and there is also the possibility that the fruit and foliage have similar spectral signature.* Hyperspectral imaging (RGB + spectral imaging) provides complete spectral signature of each pixel, however requires extensive acquisition and processing time. Other cues - Thermal imaging is highly susceptible to illumination. Texture, usually combined with colour sensing. Shape is immune to illumination and very useful for spherical fruits, but is computationally intensive to extract, may be affected by perspective and highly sensitive to occlusions.
-    - Algorithms: 1) Adaptive global threholding not suitable for image segmentation in unstructured environments and ignores shape information. Watershed segmentation considers grey scale image as topographical surface. 2) Clustering is sensitive to illumination and ignores shape information. 3) Template matching only useful when variability of target object is small. 4-5) Global shape inference is computationally intensive. Local shape inference with circular Hough transform is used for spherical fruits like tomatoes. 6) Neural networks with RGB values as features. Waschs et al. (2010) use three NNs, one each for RGB, HSV and L-a-b, and then take a majority vote.
+    - Algorithms: 1) Adaptive global threholding not suitable for image segmentation in unstructured environments and ignores shape information. Watershed segmentation considers grey scale image as topographical surface. 2) Clustering is sensitive to illumination and ignores shape information. 3) Template matching only useful when variability of target object is small. 4-5) Global shape inference is computationally intensive. Local shape inference with circular Hough transform is used for spherical fruits like tomatoes. 6) Neural networks with RGB values as features. Waschs et al. (2010) use three NNs, one each for RGB, HSV and L\*a\*b\*, and then take a majority vote.
     - Future challenges: 1) Use other cues like texture with colour for segmentation. 2) Make hyperspectral imaging computationally manageable for real-time use. 3) Realize the entire shape and pose of occluded fruits by using some prior knowledge of the expected shape. 4) Apply Gestalt principles of good continuation inspired from human vision for occluded fruits. 5) Active vision like Blake (1992) by combining planning with 3D inference. 5) 3D estimation of fruit, peduncle, nearby leaves and branches. 6) Extensive evaluation of the performance of proposed methods along with creating a public dataset for future evaluations.
 
 2. [YOLO-Tomato: A Robust Algorithm for Tomato Detection Based on YOLOv3](https://www.mdpi.com/1424-8220/20/7/2145/pdf)  
-    - This is a very successful approach to detect tomatoes that is based on a modified version of YOLOv3. Their approach produced an algorithm that is robust to variation in lighting and occlusion. 
+    - Problem: Tackles illumination variation, and branch, leaf and tomato occlusions.
+    - Contributions: 1) Dense architecture incorporated into YOLOv3 to improve prediction by reuse of features. 2) Circular bounding box (C-Box) for tomato localization.  
 
 3. [An Autonomous Fruit and Vegetable Harvester with a Low-Cost Gripper Using a 3D Sensor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982854/#sec6-sensors-20-00093)
     - Section 4 details their generalized approach in detecting & locating cutting points.
 
 4. [DeepFruits: A Fruit Detection System Using Deep Neural Networks](https://www.mdpi.com/1424-8220/16/8/1222)
     - Approach using Faster R-CNN for segmentation and detection that is robust to lighting variation and occlusion.
+
+5. [Determination of the number of green apples in RGB images recorded in orchards](https://www.sciencedirect.com/science/article/pii/S0168169911002638)
+    - Used color and texture information to classify green apples
+    - Illumination variation and color saturation had a large impact on the results
 
 ## Motion planning for lime picking
 1. [Simulation of Apple Picking Path Planning Based On Artificial Potential Field Method](https://iopscience.iop.org/article/10.1088/1755-1315/252/5/052148/meta)
