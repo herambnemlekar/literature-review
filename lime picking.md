@@ -8,7 +8,10 @@
 
 2. [YOLO-Tomato: A Robust Algorithm for Tomato Detection Based on YOLOv3](https://www.mdpi.com/1424-8220/20/7/2145/pdf)  
     - Problem: Tackles illumination variation, and branch, leaf and tomato occlusions.
-    - Contributions: 1) Dense architecture incorporated into YOLOv3 to improve prediction by reuse of features. 2) Circular bounding box (C-Box) for tomato localization.  
+    - Contributions: 1) Dense architecture incorporated into YOLOv3 to improve prediction by reuse of features. 2) Circular bounding box (C-Bbox) for tomato localization.  
+    - Data: Pictures of tomatoes in different conditions - ripe, unripe, individual, clusters, occluded, dark and bright. Data augmented by scaling and flipping.
+    - Technical details: 1) Dense net specifics. 2) Loss function details. 3) Non-Maximum Suppression (NMS) used to find final bounding boxes. At each iteration, NMS selects the bbox with most confidence and moves it to the final list of bboxes, then checks if other bboxes in the original bbox list overlap (IoU) with the max confidence bbox for a given threshold, overlapping bboxes are removed, then the process is repeated.
+    - Experiments & Results: 1) Intyersection over union for C-Bbox was more than R-Bbox. 2) F1 score for YOLO-Tomato (dense + C-bbox) > YOLO-dense > YOLOv3. 3) YOLO-Tomato peforms well in different lighting and occlusion conditions, mostly due to the dataset. 4) Overall prediction accuracy YOLO-Tomato > YOLO-dense > YOLOv3.
 
 3. [An Autonomous Fruit and Vegetable Harvester with a Low-Cost Gripper Using a 3D Sensor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982854/#sec6-sensors-20-00093)
     - Section 4 details their generalized approach in detecting & locating cutting points.
