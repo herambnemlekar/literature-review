@@ -1,12 +1,22 @@
-## Learning and predicting human preference and actions
+## Preferences in human-robot collaboration
 
-1. [PlanIt: A crowdsourcing approach for learning to plan paths from large scale preference feedback])(https://ieeexplore.ieee.org/abstract/document/7139281)
+1. [Preference-Based Assistance Prediction for Human–Robot Collaboration Tasks](https://alessandro.ronc.one/papers/2018_Grigore_IROS_assistance_prediction.pdf)
+	- Supportive actions are separate from task actions
+	- Users annotate their preferred supportive behabiours
+	- Preference variables dependent on hidden state of task
+	
+1. [Towards Learning to Handle Deviations using User Preferences in a Human Robot Collaboration Scenario](https://pervasive.uni-klu.ac.at/BR/pubs/2016/Akkaladevi_IHCI2016.pdf)
+	- Interactive RL. User provides feedback about the robot's action, especially if they deviate from the user's preference.
 
 1. [Preference Learning on the Execution of Collaborative Human-RobotTasks](https://ipvs.informatik.uni-stuttgart.de/mlr/papers/17-munzer-ICRA.pdf)
 	- Use Relational Activity Processes (RAP) which represents task as SMDP.
 	- overall Q* = task Q* + preference Q
 
-1. [Preference-Based Assistance Prediction for Human–Robot Collaboration Tasks](https://alessandro.ronc.one/papers/2018_Grigore_IROS_assistance_prediction.pdf)
+## Learning and predicting human preference and actions
+
+1. [PlanIt: A crowdsourcing approach for learning to plan paths from large scale preference feedback])(https://ieeexplore.ieee.org/abstract/document/7139281)
+
+
 
 1. [Anticipation in Human-Robot Cooperation: A Recurrent Neural Network Approach for Multiple Action Sequences  Prediction](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8460924&tag=1)
 
