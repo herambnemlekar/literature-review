@@ -1,42 +1,54 @@
-## Lime detection
-1. [Computer vision for fruit harvesting robots – state of the art and challenges ahead](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.298.2555&rep=rep1&type=pdf)
-    - Motivation: Agricultural tasks are handled manually despite the expensive and diminishing agricultural labour, physically demanding and time-consuming operations.
-    - Challenge: Unstructured environment - different colours, shapes, sizes, textures, reflectance properties, uncertainty in environment, changing illumination and shadows, and occlusions.
-    - Sensors & Cues: Single camera fixed on the robot or/and on the robot arm. Multiple cameras for stero vision to get depth. RGBD sesnors for depth. *Spectral imaging for recognition based on reflection, especially when fruit and foliage have same colour. However it is sensitive to illumination, and there is also the possibility that the fruit and foliage have similar spectral signature.* Hyperspectral imaging (RGB + spectral imaging) provides complete spectral signature of each pixel, however requires extensive acquisition and processing time. Other cues - Thermal imaging is highly susceptible to illumination. Texture, usually combined with colour sensing. Shape is immune to illumination and very useful for spherical fruits, but is computationally intensive to extract, may be affected by perspective and highly sensitive to occlusions.
-    - Algorithms: 1) Adaptive global threholding not suitable for image segmentation in unstructured environments and ignores shape information. Watershed segmentation considers grey scale image as topographical surface. 2) Clustering is sensitive to illumination and ignores shape information. 3) Template matching only useful when variability of target object is small. 4-5) Global shape inference is computationally intensive. Local shape inference with circular Hough transform is used for spherical fruits like tomatoes. 6) Neural networks with RGB values as features. Waschs et al. (2010) use three NNs, one each for RGB, HSV and L\*a\*b\*, and then take a majority vote.
-    - Future challenges: 1) Use other cues like texture with colour for segmentation. 2) Make hyperspectral imaging computationally manageable for real-time use. 3) Realize the entire shape and pose of occluded fruits by using some prior knowledge of the expected shape. 4) Apply Gestalt principles of good continuation inspired from human vision for occluded fruits. 5) Active vision like Blake (1992) by combining planning with 3D inference. 5) 3D estimation of fruit, peduncle, nearby leaves and branches. 6) Extensive evaluation of the performance of proposed methods along with creating a public dataset for future evaluations.
-
-2. [YOLO-Tomato: A Robust Algorithm for Tomato Detection Based on YOLOv3](https://www.mdpi.com/1424-8220/20/7/2145/pdf)  
-    - Problem: Tackles illumination variation, and branch, leaf and tomato occlusions.
-    - Contributions: 1) Dense architecture incorporated into YOLOv3 to improve prediction by reuse of features. 2) Circular bounding box (C-Bbox) for tomato localization.  
-    - Data: Pictures of tomatoes in different conditions - ripe, unripe, individual, clusters, occluded, dark and bright. Data augmented by scaling and flipping.
-    - Technical details: 1) Dense net specifics. 2) Loss function details. 3) Non-Maximum Suppression (NMS) used to find final bounding boxes. At each iteration, NMS selects the bbox with most confidence and moves it to the final list of bboxes, then checks if other bboxes in the original bbox list overlap (IoU) with the max confidence bbox for a given threshold, overlapping bboxes are removed, then the process is repeated.
-    - Experiments & Results: 1) Intyersection over union for C-Bbox was more than R-Bbox. 2) F1 score for YOLO-Tomato (dense + C-bbox) > YOLO-dense > YOLOv3. 3) YOLO-Tomato peforms well in different lighting and occlusion conditions, mostly due to the dataset. 4) Overall prediction accuracy YOLO-Tomato > YOLO-dense > YOLOv3.
-
-3. [An Autonomous Fruit and Vegetable Harvester with a Low-Cost Gripper Using a 3D Sensor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982854/#sec6-sensors-20-00093)
-    - Section 4 details their generalized approach in detecting & locating cutting points.
-
-4. [DeepFruits: A Fruit Detection System Using Deep Neural Networks](https://www.mdpi.com/1424-8220/16/8/1222)
-    - Approach using Faster R-CNN for segmentation and detection that is robust to lighting variation and occlusion.
-
-5. [Determination of the number of green apples in RGB images recorded in orchards](https://www.sciencedirect.com/science/article/pii/S0168169911002638)
-    - Used color and texture information to classify green apples
-    - Illumination variation and color saturation had a large impact on the results
-
-## Motion planning for lime picking
+## Motion planning techniques used in fruit harvesting
 1. [Simulation of Apple Picking Path Planning Based On Artificial Potential Field Method](https://iopscience.iop.org/article/10.1088/1755-1315/252/5/052148/meta)
+    - Claims: Combine characteristics of obstacles in environment, use APF in 3D joint-space, and a more smooth obstacle avoidance motion curve. 
+    - Summary: Uses APF to plan motion. Done completely in simulation. Does not mention obstacle characteristics or smooth motion curve.
 
 1. [Analysis of a motion planning problem for sweet-pepper harvesting in a dense obstacle environment](https://www.sciencedirect.com/science/article/pii/S1537511015001191)
+    - Manually measured position of all peppers and their stems in a greenhouse and created simulation environment.
+    - IK used to get joint angles for possible end effector poses for picking.
+    - Bi-directional RRT used for path planning, smoothing done by divide and conquer. Maximum possible planning time was 30 mins. 
+    - Shape primitives used for collision checking eg. cylinder for the sweet pepper.
+    - Analyse motion planning success with respect to angle of approach, end effector size, robot position, fruit location, stem spacing. 
 
 1. [RRT-based path planning for an intelligent litchi-picking manipulator](https://www.sciencedirect.com/science/article/pii/S0168169918303971)
-    - Branches are simplified to a series of cylinders. Therefore for collision detection, collision should be checked between: 6 cylinders of the robot x (no. of branches x no. of cylinders per branch).
+    - Avoid branches and untargeted fruit. Branches are simplified to a series of cylinders. Therefore for collision detection, collision should be checked between: 6 cylinders of the robot x (no. of branches x no. of cylinders per branch).
+    - RRT with target gravity used to find paths. Paths improved using Genetic algorithm where shorter paths with greater distance from obstacles considered more fit. After which path smoothing is done.
+    - They claim to use binocular vision to detect branches. However don't provide details of how they get such accurate measurements.
     - Limitation: Branches easy to model as cylinders in the litchi plant simulation as the branches are not heavily covered with leaves.
 
 1. [Path Planning for a Fruit Picking Manipulator](http://www.geyseco.es/geystiona/adjs/comunicaciones/304/C03090001.pdf)
+    - Considers only stems and fruits as obstacles. Ignores leaves and branches. 
+    - Claim to represent obstacles as primitive objects - cylinders and spheres. However their experiments only use stem center coordinates and the fruit center coordinates.
+    - Plans in workspace using APF and converts trajectory to join space using inverse kinematics.
+    - Does not mention how the center coordinates would be obtained in real-world tasks.
+
+1. [An autonomous robot for harvesting cucumbers in greenhouses](file:///tmp/mozilla_heramb0/VanHenten2002_Article_AnAutonomousRobotForHarvesting.pdf)
+    - Detect green cucumbers against green background.
+    - Cucumbers and obstacles modelled for collision checking.
+    - Inverse kinematics used to map end effector pose for grasping cucumber to configuration space.
+    - A* used for planning by dicretising the configuration space.
+    - Does not provide details of how obstacles are detected and mapped to the configuration space.
+
+1. Obstacle avoidance path planning of hybrid harvesting manipulator based on joint configuration space
+    - Paper is in chinese
+    - Uses RRT.
+
+1. [Development of an autonomous kiwifruit picking robot](https://www.researchgate.net/profile/Claire_Flemmer/publication/220774427_Development_of_an_autonomous_kiwifruit_picking_robot/links/0046353065c888a409000000/Development-of-an-autonomous-kiwifruit-picking-robot.pdf)
+    - 
+
+
+## Motion Planning: RRT
+
+### Real-world application
+1. An integrated approach to inverse kinematics and path planning for redundant manipulators
 
 ### Summary
 1. [Motion Planning and Obstacle Avoidance](https://link.springer.com/chapter/10.1007/978-3-319-32552-1_47)
     - This is a chapter of a rather recent(2016) book that includes state-of-the-art algorithms on robot motion planning and obstacle avoidance.
+
+### Heuristics in RRT
+1. Approaches for heuristically biasing RRT growth
+
 
 ### Artificial Potential Field
 1. [An Improved Artificial Potential Field Method Based on DWA and Path Optimization](https://ieeexplore.ieee.org/document/8996014)
@@ -90,3 +102,31 @@
 1. [Planners Benchmarking Documentation](https://readthedocs.org/projects/planners-benchmarking/downloads/pdf/latest/)
 
 1. [Benchmarking Motion Planning Algorithms](http://kavrakilab.org/publications/moll-sucan2015benchmarking-motion-planning.pdf)
+
+
+## Lime detection
+1. [Computer vision for fruit harvesting robots – state of the art and challenges ahead](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.298.2555&rep=rep1&type=pdf)
+    - Motivation: Agricultural tasks are handled manually despite the expensive and diminishing agricultural labour, physically demanding and time-consuming operations.
+    - Challenge: Unstructured environment - different colours, shapes, sizes, textures, reflectance properties, uncertainty in environment, changing illumination and shadows, and occlusions.
+    - Sensors & Cues: Single camera fixed on the robot or/and on the robot arm. Multiple cameras for stero vision to get depth. RGBD sesnors for depth. *Spectral imaging for recognition based on reflection, especially when fruit and foliage have same colour. However it is sensitive to illumination, and there is also the possibility that the fruit and foliage have similar spectral signature.* Hyperspectral imaging (RGB + spectral imaging) provides complete spectral signature of each pixel, however requires extensive acquisition and processing time. Other cues - Thermal imaging is highly susceptible to illumination. Texture, usually combined with colour sensing. Shape is immune to illumination and very useful for spherical fruits, but is computationally intensive to extract, may be affected by perspective and highly sensitive to occlusions.
+    - Algorithms: 1) Adaptive global threholding not suitable for image segmentation in unstructured environments and ignores shape information. Watershed segmentation considers grey scale image as topographical surface. 2) Clustering is sensitive to illumination and ignores shape information. 3) Template matching only useful when variability of target object is small. 4-5) Global shape inference is computationally intensive. Local shape inference with circular Hough transform is used for spherical fruits like tomatoes. 6) Neural networks with RGB values as features. Waschs et al. (2010) use three NNs, one each for RGB, HSV and L\*a\*b\*, and then take a majority vote.
+    - Future challenges: 1) Use other cues like texture with colour for segmentation. 2) Make hyperspectral imaging computationally manageable for real-time use. 3) Realize the entire shape and pose of occluded fruits by using some prior knowledge of the expected shape. 4) Apply Gestalt principles of good continuation inspired from human vision for occluded fruits. 5) Active vision like Blake (1992) by combining planning with 3D inference. 5) 3D estimation of fruit, peduncle, nearby leaves and branches. 6) Extensive evaluation of the performance of proposed methods along with creating a public dataset for future evaluations.
+
+2. [YOLO-Tomato: A Robust Algorithm for Tomato Detection Based on YOLOv3](https://www.mdpi.com/1424-8220/20/7/2145/pdf)  
+    - Problem: Tackles illumination variation, and branch, leaf and tomato occlusions.
+    - Contributions: 1) Dense architecture incorporated into YOLOv3 to improve prediction by reuse of features. 2) Circular bounding box (C-Bbox) for tomato localization.  
+    - Data: Pictures of tomatoes in different conditions - ripe, unripe, individual, clusters, occluded, dark and bright. Data augmented by scaling and flipping.
+    - Technical details: 1) Dense net specifics. 2) Loss function details. 3) Non-Maximum Suppression (NMS) used to find final bounding boxes. At each iteration, NMS selects the bbox with most confidence and moves it to the final list of bboxes, then checks if other bboxes in the original bbox list overlap (IoU) with the max confidence bbox for a given threshold, overlapping bboxes are removed, then the process is repeated.
+    - Experiments & Results: 1) Intyersection over union for C-Bbox was more than R-Bbox. 2) F1 score for YOLO-Tomato (dense + C-bbox) > YOLO-dense > YOLOv3. 3) YOLO-Tomato peforms well in different lighting and occlusion conditions, mostly due to the dataset. 4) Overall prediction accuracy YOLO-Tomato > YOLO-dense > YOLOv3.
+
+3. [An Autonomous Fruit and Vegetable Harvester with a Low-Cost Gripper Using a 3D Sensor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982854/#sec6-sensors-20-00093)
+    - Section 4 details their generalized approach in detecting & locating cutting points.
+
+4. [DeepFruits: A Fruit Detection System Using Deep Neural Networks](https://www.mdpi.com/1424-8220/16/8/1222)
+    - Approach using Faster R-CNN for segmentation and detection that is robust to lighting variation and occlusion.
+
+5. [Determination of the number of green apples in RGB images recorded in orchards](https://www.sciencedirect.com/science/article/pii/S0168169911002638)
+    - Used color and texture information to classify green apples
+    - Illumination variation and color saturation had a large impact on the results
+
+
