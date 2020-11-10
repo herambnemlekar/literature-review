@@ -1,4 +1,4 @@
-## Motion planning techniques used in fruit harvesting
+# Motion planning techniques used in fruit harvesting
 1. [Simulation of Apple Picking Path Planning Based On Artificial Potential Field Method](https://iopscience.iop.org/article/10.1088/1755-1315/252/5/052148/meta)
     - Claims: Combine characteristics of obstacles in environment, use APF in 3D joint-space, and a more smooth obstacle avoidance motion curve. 
     - Summary: Uses APF to plan motion. Done completely in simulation. Does not mention obstacle characteristics or smooth motion curve.
@@ -9,6 +9,12 @@
     - Bi-directional RRT used for path planning, smoothing done by divide and conquer. Maximum possible planning time was 30 mins. 
     - Shape primitives used for collision checking eg. cylinder for the sweet pepper.
     - Analyse motion planning success with respect to angle of approach, end effector size, robot position, fruit location, stem spacing. 
+
+1. [Evaluation of a direct optimization method for trajectory planning of a 9-DOF redundant fruit-picking manipulator](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/7139558/references#references)
+    - Initial path found in workspace. B-spline curve such that gripper enters plant radially.
+    - Path optimized with hard constraints for joint limits, start and end velocities. Collision avoidance done by minimising the objective function.
+    - For collision avoidance, robot and environment geometries modelled using swept-sphere volumes.
+    - Limitation: Tested in green house where the there is just one vertical stem, which can be easily modelled as a vertical cylinder.
 
 1. [RRT-based path planning for an intelligent litchi-picking manipulator](https://www.sciencedirect.com/science/article/pii/S0168169918303971)
     - Avoid branches and untargeted fruit. Branches are simplified to a series of cylinders. Therefore for collision detection, collision should be checked between: 6 cylinders of the robot x (no. of branches x no. of cylinders per branch).
@@ -28,16 +34,32 @@
     - Inverse kinematics used to map end effector pose for grasping cucumber to configuration space.
     - A* used for planning by dicretising the configuration space.
     - Does not provide details of how obstacles are detected and mapped to the configuration space.
+    - Same paper: [Collision-free Motion Planning for a Cucumber Picking Robot](https://www.sciencedirect.com/science/article/pii/S1537511003001338)
+
+1. [**Task and Motion Planning for Apple Harvesting Robot**](https://www.sciencedirect.com/science/article/pii/S1474667015349922)
+    - Uses point cloud data to formm collision map
+    - Uses RRTConnect in OMPL for planning collision free path given robot urdf and collision map.
 
 1. Obstacle avoidance path planning of hybrid harvesting manipulator based on joint configuration space
     - Paper is in chinese
     - Uses RRT.
 
+1. [On-line near minimum-time path planning and control of an industrial robot for picking fruits](https://www.sciencedirect.com/science/article/pii/S0168169904000912)
+
+
 1. [Development of an autonomous kiwifruit picking robot](https://www.researchgate.net/profile/Claire_Flemmer/publication/220774427_Development_of_an_autonomous_kiwifruit_picking_robot/links/0046353065c888a409000000/Development-of-an-autonomous-kiwifruit-picking-robot.pdf)
-    - 
+    - Nothing about motion planning
+
+1. [Near-minimum-time task planning for fruit-picking robots](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=68069)
+    - Travelling Salesman Problem (TSP) for finding the near optimal path for picking *n* fruits
+    - Motion between fruits equvivalent to moving along straight line in a Euclidean configuration space.
+
+1. [Robotic melon harvesting](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/897793)
+    - TSP for moving the tractor carrying the picking manipulator to a cluster of melons
+    - Motion planning for picking not clearly explained. Need to read paper again.
 
 
-## Motion Planning: RRT
+# Motion Planning: RRT
 
 ### Real-world application
 1. An integrated approach to inverse kinematics and path planning for redundant manipulators
@@ -45,6 +67,23 @@
 ### Summary
 1. [Motion Planning and Obstacle Avoidance](https://link.springer.com/chapter/10.1007/978-3-319-32552-1_47)
     - This is a chapter of a rather recent(2016) book that includes state-of-the-art algorithms on robot motion planning and obstacle avoidance.
+
+### Cost-based RRT
+1. [**Cost  Based  Planning  with  RRT  in  Outdoor  Environments**](https://ieeexplore.ieee.org/abstract/document/4651052?casa_token=Ny5AFrGl6BgAAAAA:_nAUBZRKTWI8RJ2OAo2VLKRWRBRu10L5R4JTfcET2MvZu-Lb_uLk7oCzWbjU_RsFloacUvcYeg)
+    - Selecting nearest node based on cost + distance.
+
+1. [Transition-based RRT for Path Planning in Continuous Cost Spaces](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=4650993)
+    - Each configuration is associated with a cost.
+    - If the cost of a new node is mmore than the nearest node, the new node is added to the tree with a probability inversely proportional to the cost difference.
+    - Temperature which is the hyperparameter for calculating the probability is adapted according to how many nodes have been rejected or accepted.
+
+1. [Addressing  Cost-Space  Chasms  in  Manipulation  Planning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5979797&casa_token=uAlYkW0o8egAAAAA:f_dFy31tGXm2xY_ZlISaais2SiTLPhD30g96deiKvsUCRTZ5KdfxeNCJhy0mJzhLuD0hSpywRg)
+    - Based on transition-based RRT
+    - If a configuration is rejected because its cost is above the threshold, gradient descent is used to shift the configuration to a lower cost. If the new configuration has lower cost than the parent node or passes the temperature check, the node is is accepted, however this acceptance is used to adapt the temperature.
+
+1. [Enhancing the Transition-based RRT to Deal with Complex Cost Spaces](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=6631158)
+    - Bi-directional transition-based RRT
+
 
 ### Heuristics in RRT
 1. Approaches for heuristically biasing RRT growth
@@ -104,7 +143,7 @@
 1. [Benchmarking Motion Planning Algorithms](http://kavrakilab.org/publications/moll-sucan2015benchmarking-motion-planning.pdf)
 
 
-## Lime detection
+# Lime detection
 1. [Computer vision for fruit harvesting robots – state of the art and challenges ahead](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.298.2555&rep=rep1&type=pdf)
     - Motivation: Agricultural tasks are handled manually despite the expensive and diminishing agricultural labour, physically demanding and time-consuming operations.
     - Challenge: Unstructured environment - different colours, shapes, sizes, textures, reflectance properties, uncertainty in environment, changing illumination and shadows, and occlusions.
