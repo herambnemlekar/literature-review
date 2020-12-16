@@ -69,12 +69,13 @@
     - This is a chapter of a rather recent(2016) book that includes state-of-the-art algorithms on robot motion planning and obstacle avoidance.
 
 ### Cost-based RRT
-1. [**Cost  Based  Planning  with  RRT  in  Outdoor  Environments**](https://ieeexplore.ieee.org/abstract/document/4651052?casa_token=Ny5AFrGl6BgAAAAA:_nAUBZRKTWI8RJ2OAo2VLKRWRBRu10L5R4JTfcET2MvZu-Lb_uLk7oCzWbjU_RsFloacUvcYeg)
+1. [Cost  Based  Planning  with  RRT  in  Outdoor  Environments](https://ieeexplore.ieee.org/abstract/document/4651052?casa_token=Ny5AFrGl6BgAAAAA:_nAUBZRKTWI8RJ2OAo2VLKRWRBRu10L5R4JTfcET2MvZu-Lb_uLk7oCzWbjU_RsFloacUvcYeg)
     - Selecting nearest node based on cost + distance.
 
 1. [Transition-based RRT for Path Planning in Continuous Cost Spaces](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=4650993)
+    - [Sampling-Based Path Planning on Configuration-Space Costmaps](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=5477164)
     - Each configuration is associated with a cost.
-    - If the cost of a new node is mmore than the nearest node, the new node is added to the tree with a probability inversely proportional to the cost difference.
+    - If the cost of a new node is more than the nearest node, the new node is added to the tree with a probability inversely proportional to the cost difference.
     - Temperature which is the hyperparameter for calculating the probability is adapted according to how many nodes have been rejected or accepted.
 
 1. [Addressing  Cost-Space  Chasms  in  Manipulation  Planning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5979797&casa_token=uAlYkW0o8egAAAAA:f_dFy31tGXm2xY_ZlISaais2SiTLPhD30g96deiKvsUCRTZ5KdfxeNCJhy0mJzhLuD0hSpywRg)
@@ -84,6 +85,30 @@
 1. [Enhancing the Transition-based RRT to Deal with Complex Cost Spaces](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=6631158)
     - Bi-directional transition-based RRT
 
+1. Rapidly-exploring Random Trees for Testing Automated Vehicles
+    - Uses transition-based RRT to accept or reject a configuration based on cost of collision.
+
+1. [**Sampling-based algorithms for optimal motion planning**](https://journals-sagepub-com.libproxy1.usc.edu/doi/pdf/10.1177/0278364911406761)
+    - RRT*
+
+1. [Fast Sampling-Based Cost-Aware Path Planning With Nonmyopic Extensions Using Cross Entropy](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=8017656)
+    - RRT* with a cross entropy based extend/steer algorithm
+
+
+1. [Traversability-Based RRT* for Planetary Rover Path Planning in Rough Terrain with LIDAR Point Cloud Data](https://search-proquest-com.libproxy2.usc.edu/docview/2465810115?accountid=14749&pq-origsite=summon)
+    - RRT* with a custom cost function and *traversability assessment* to check if extend possible.
+
+1. [**Optimal Path Planning in Complex Cost Spaces With Sampling-Based Algorithms**](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=7305826)
+    - T-RRT + RRT*
+    - 
+1. [Optimal Path Planning Based on a Multi-Tree T-RRT* Approach for Robotic Task Planningin Continuous Cost Spaces](https://strathprints.strath.ac.uk/64678/1/Wang_etal_Mecatronics2018_Optimal_path_planning_based_on_a_multi_tree_T_RRT.pdf)
+
+1. [**Potential Guided Directional-RRT* for Accelerated Motion Planning in Cluttered Environments**](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=6617971)
+    - Applies gradient descent on random sample
+
+1. [Bidirectional Potential Guided RRT* for Motion Planning](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=8763966)    - 
+
+1. [Potential and Sampling Based RRT Star for Real-Time Dynamic Motion Planning Accounting for Momentum in Cost Function]
 
 ### Heuristics in RRT
 1. Approaches for heuristically biasing RRT growth
