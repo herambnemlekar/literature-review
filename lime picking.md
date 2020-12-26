@@ -68,7 +68,7 @@
 1. [Motion Planning and Obstacle Avoidance](https://link.springer.com/chapter/10.1007/978-3-319-32552-1_47)
     - This is a chapter of a rather recent(2016) book that includes state-of-the-art algorithms on robot motion planning and obstacle avoidance.
 
-### Cost-based RRT
+## Cost-based RRT
 1. [Cost  Based  Planning  with  RRT  in  Outdoor  Environments](https://ieeexplore.ieee.org/abstract/document/4651052?casa_token=Ny5AFrGl6BgAAAAA:_nAUBZRKTWI8RJ2OAo2VLKRWRBRu10L5R4JTfcET2MvZu-Lb_uLk7oCzWbjU_RsFloacUvcYeg)
     - Selecting nearest node based on cost + distance.
 
@@ -82,13 +82,19 @@
     - Based on transition-based RRT
     - If a configuration is rejected because its cost is above the threshold, gradient descent is used to shift the configuration to a lower cost. If the new configuration has lower cost than the parent node or passes the temperature check, the node is is accepted, however this acceptance is used to adapt the temperature.
 
-1. [Enhancing the Transition-based RRT to Deal with Complex Cost Spaces](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=6631158)
-    - Bi-directional transition-based RRT
-
 1. Rapidly-exploring Random Trees for Testing Automated Vehicles
     - Uses transition-based RRT to accept or reject a configuration based on cost of collision.
 
-1. [**Sampling-based algorithms for optimal motion planning**](https://journals-sagepub-com.libproxy1.usc.edu/doi/pdf/10.1177/0278364911406761)
+1. [Enhancing the Transition-based RRT to Deal with Complex Cost Spaces](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=6631158)
+    - Bi-directional transition-based RRT
+
+1. [Motion Planning by T‐RRT with Potential Function for Vertical Articulated Robots](https://onlinelibrary.wiley.com/doi/full/10.1002/eej.23103)
+    - Uses APF as cost function for transition-based RRT. 
+    - Length of path comparable to RRT\*, computation time much less than RRT\*. However they (probably) used a different cost function for their RRT\* implementation.
+
+### RRT-star approaches
+
+1. [Sampling-based algorithms for optimal motion planning](https://journals-sagepub-com.libproxy1.usc.edu/doi/pdf/10.1177/0278364911406761)
     - RRT*
 
 1. [Fast Sampling-Based Cost-Aware Path Planning With Nonmyopic Extensions Using Cross Entropy](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=8017656)
@@ -106,13 +112,47 @@
 1. [**Potential Guided Directional-RRT* for Accelerated Motion Planning in Cluttered Environments**](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=6617971)
     - Applies gradient descent on random sample
 
-1. [Bidirectional Potential Guided RRT* for Motion Planning](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=8763966)    - 
+1. [Adaptive Potential guided directional-RRT](https://ieeexplore.ieee.org/abstract/document/6739744)
+
+1. [Potential functions based sampling heuristic for optimal path planning](https://link.springer.com/article/10.1007/s10514-015-9518-0)
 
 1. [Potential and Sampling Based RRT Star for Real-Time Dynamic Motion Planning Accounting for Momentum in Cost Function]
 
-### Heuristics in RRT
-1. Approaches for heuristically biasing RRT growth
+1. [Bidirectional Potential Guided RRT* for Motion Planning](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=8763966)
+    - Claim: Suitable for narrow channels
+    - Similar to P-RRT\*, randomized gradient descent (RGD) used to shift random sample along gradient. 
+    - The target for attractive field for each of the two trees is not mentioned.
 
+1. [Potentially guided bidirectionalized RRT* for fast optimal path planning in cluttered environments](https://www.sciencedirect.com/science/article/pii/S0921889017309387)
+    -
+
+1. [Optimal path planning in cluttered environment using RRT\*-AB](https://link.springer.com/article/10.1007/s11370-017-0236-7)
+    - Claim: Improves upon Informed-RRT\*
+    - Does not test against Informed-RRT\*, only RRT\* and RRT\*-Smart. RRT\*-AB more efficient than RRT\* and RRT\*-Smart.
+    - It searches a path using RRT\* by random sampling within a constrained *connectivity region* defined by the start and goal configuration. After a *complete scan* if a path is not found, the connectivity region is increased. 
+    - Does not say how connectivity region and complete scan are implemented. If the complete scan determines that path is not found after too many samples. then the efficiency of this method would be as poor as RRT\*.
+
+1. [RRT\*N: an efficient approach to path planning in 3D for Static and Dynamic Environments](https://www.tandfonline.com/doi/pdf/10.1080/01691864.2020.1850349?needAccess=true)
+    - Claim: Improves upon Informed-RRT\* and Bidirectional RRT\*.
+    - Extends RRT\*N to 3D environments.
+    - Samples from a normal distribution along a straight line connecting the start and goal configurations.
+    - For dynamic obstacles, a path is initially found, then the parts of the path that would collide with the dynamic obstacle are removed and a new path is found between the cut off points. 
+
+1. [**Biased Sampling Potentially Guided Intelligent Bidirectional RRT\* Algorithm for UAV Path Planning in 3D Environment**](https://www.hindawi.com/journals/mpe/2019/5157403/)
+    - Claim: Improves upon Potentially Guided Bidirectional RRT\*
+    - Note: RGD in previous work is not exactly gradient of APF. It is gradient of attractive force towards goal/start which stops whenever node reaches close to obstacle.
+    - First a sampling bias (Bi-bias) is applied on the random sample. Bi-bias moves the random sample towards the previous new node of either tree A or tree B (alternatively).
+    - Next it applies APF (which includes repulsive force from obstacles) with attractive force towards previous new node of one of the trees alternatively.
+
+1. [An Improved RRT* Path Planning Algorithm for Service Robot]
+
+1. [Deep Learning rooted Potential piloted RRT\* for expeditious Path Planning]
+
+1. [Accelerated RRT* and its evaluation on Autonomous Parking]
+
+1. [3-D Trajectory Planning of Aerial Vehicles Using RRT\*]
+
+1. [A Survey of Asymptotically Optimal Sampling-based Motion Planning Methods](https://arxiv.org/pdf/2009.10484.pdf)
 
 ### Artificial Potential Field
 1. [An Improved Artificial Potential Field Method Based on DWA and Path Optimization](https://ieeexplore.ieee.org/document/8996014)
@@ -123,7 +163,6 @@
 3. [Robotic Arm Path Planning Based on Three-Dimensional Artificial Potential Field](https://ieeexplore.ieee.org/document/8571458)
     - Using rotational repulsive field around obstacles instead of pushing robot directly away
     - Another attempt to solve local minima problem
-
 4. [Obstacle Avoidance for Mobile Robots Using Artificial Potential Field Approach with Simulated Annealing](https://ieeexplore.ieee.org/document/931933)
     - Ancient paper (2001)
     - Uses Simulated Annealing to escape from local minima
@@ -132,17 +171,11 @@
 
 
 ### RRT related
-1. [Bidirectional Potential Guided RRT* for Motion Planning](https://ieeexplore.ieee.org/document/8763966)
-    - Combine RRT*-connect with APF to solve local minima problem of APF
-    - Improve performance of RRT* by reducing its randomness with APF guiding the exploration
-    - Particularly suited to narrow channels, which could be well suited for our case
-2. [Rapidly-Exploring Random Vines (RRV) for Motion Planning in Configuration Spaces with Narrow Passages](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/8460186)
+1. [Rapidly-Exploring Random Vines (RRV) for Motion Planning in Configuration Spaces with Narrow Passages](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/8460186)
     - Improved RRT to work better in narrow corridors.
     - Expands far less nodes than RRT or RRT connect and is significantly faster. From the experiments it seems that the cost is that is produces sub-optimal paths that are far worse than those produced by RRT.
     - Need to read more in depth.
-3. [Potential guided directional-RRT* for accelerated motion planning in cluttered environments](https://ieeexplore.ieee.org/abstract/document/6617971)
-4. [Adaptive Potential guided directional-RRT](https://ieeexplore.ieee.org/abstract/document/6739744)
-5. [Potential functions based sampling heuristic for optimal path planning](https://link.springer.com/article/10.1007/s10514-015-9518-0)
+
 
 ### Others
 1. [Robotic Path Planning Based on Improved Ant Colony Algorithm](https://link.springer.com/chapter/10.1007/978-3-030-22796-8_37)
