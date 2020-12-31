@@ -130,7 +130,8 @@
     - Claim: Improves upon Informed-RRT\*
     - Does not test against Informed-RRT\*, only RRT\* and RRT\*-Smart. RRT\*-AB more efficient than RRT\* and RRT\*-Smart.
     - It searches a path using RRT\* by random sampling within a constrained *connectivity region* defined by the start and goal configuration. After a *complete scan* if a path is not found, the connectivity region is increased. 
-    - Does not say how connectivity region and complete scan are implemented. If the complete scan determines that path is not found after too many samples. then the efficiency of this method would be as poor as RRT\*.
+    - Does not say how connectivity region and complete scan are implemented. However it seems it is along a straight line connecting start and goal configurations.
+    - If the complete scan determines that path is not found after too many samples. then the efficiency of this method would be as poor as RRT\*.
 
 1. [RRT\*N: an efficient approach to path planning in 3D for Static and Dynamic Environments](https://www.tandfonline.com/doi/pdf/10.1080/01691864.2020.1850349?needAccess=true)
     - Claim: Improves upon Informed-RRT\* and Bidirectional RRT\*.
@@ -144,15 +145,25 @@
     - First a sampling bias (Bi-bias) is applied on the random sample. Bi-bias moves the random sample towards the previous new node of either tree A or tree B (alternatively).
     - Next it applies APF (which includes repulsive force from obstacles) with attractive force towards previous new node of one of the trees alternatively.
 
-1. [An Improved RRT* Path Planning Algorithm for Service Robot]
+1. [An Improved RRT* Path Planning Algorithm for Service Robot, May 2020](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/9085226)
+    - Simialr to RRT\*-AB
+    - Samples wihtin a *connectivity region* and modifies connectivity region after a *complete scan*.
+    - *Connectivity region* seems to be around a straight line connecting start and goal configurations.
+    - May not be effective for a maze.
+    - Once a path is found, it uses Informed-RRT\* to optimize the path.
 
-1. [Deep Learning rooted Potential piloted RRT\* for expeditious Path Planning]
+1. [Deep Learning rooted Potential piloted RRT\* for expeditious Path Planning, July 2019](https://dl-acm-org.libproxy1.usc.edu/doi/pdf/10.1145/3351917.3351990)
+    - Predict parameters for potential guided RRT\*. Parameters are the APF gains for attraction towards goal and repulsion from obstacles in different parts of the configuration space.
+    - Trains a neural network to predict the parameters of an APF. Start, goal and obstacle centers and area used as input features. Dijkstra's used to calculate ground truth.
 
-1. [Accelerated RRT* and its evaluation on Autonomous Parking]
+1. [Accelerated RRT* and its evaluation on Autonomous Parking, Feb 2020](https://arxiv.org/pdf/2002.04521v1.pdf)
+    - Unpublished?
 
-1. [3-D Trajectory Planning of Aerial Vehicles Using RRT\*]
+1. [3-D Trajectory Planning of Aerial Vehicles Using RRT\*, May 2017](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=7505628)
+    - Applies APF on random sample.
 
-1. [A Survey of Asymptotically Optimal Sampling-based Motion Planning Methods](https://arxiv.org/pdf/2009.10484.pdf)
+1. [A Survey of Asymptotically Optimal Sampling-based Motion Planning Methods, Sep 2020](https://arxiv.org/pdf/2009.10484.pdf)
+    - [Adaptively Informed Trees (AIT\*): Fast Asymptotically Optimal Path Planning through Adaptive Heuristics](https://arxiv.org/pdf/2002.06599.pdf)
 
 ### Artificial Potential Field
 1. [An Improved Artificial Potential Field Method Based on DWA and Path Optimization](https://ieeexplore.ieee.org/document/8996014)
