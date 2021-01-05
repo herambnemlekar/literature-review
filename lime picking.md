@@ -121,12 +121,22 @@
 
 1. [Potential and Sampling Based RRT Star for Real-Time Dynamic Motion Planning Accounting for Momentum in Cost Function]
 
+1. [Intelligent bidirectional rapidly-exploring random trees for optimal motion planning in complex cluttered environments](https://www-sciencedirect-com.libproxy1.usc.edu/science/article/pii/S0921889015000317)
+
 1. [Bidirectional Potential Guided RRT\* for Motion Planning](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=8763966)
     - Claim: Suitable for narrow channels
     - Similar to P-RRT\*, randomized gradient descent (RGD) used to shift random sample along gradient. 
     - The target for attractive field for each of the two trees is not mentioned.
 
 1. [Potentially guided bidirectionalized RRT\* for fast optimal path planning in cluttered environments](https://www.sciencedirect.com/science/article/pii/S0921889017309387)
+    - Bi-directional potential gradient (BPG) applied on random sample.
+    - At every even iteration the random sample is guided towards the goal if it is not too close to the nearest obstacle. Similarly at the odd iteration, the random sample is guided towards the start provided that the random sample is not within a certain distance of the nearest obstacle.
+
+1. [**Biased Sampling Potentially Guided Intelligent Bidirectional RRT\* Algorithm for UAV Path Planning in 3D Environment**](https://www.hindawi.com/journals/mpe/2019/5157403/)
+    - Claim: Improves upon Potentially Guided Bidirectional RRT\*
+    - Note: RGD in previous work is not exactly gradient of APF. It is gradient of attractive force towards goal/start which stops whenever node reaches close to obstacle.
+    - First a sampling bias (Bi-bias) is applied on the random sample. Bi-bias moves the random sample towards the previous new node of either tree A or tree B (alternatively).
+    - Next it applies APF (which includes repulsive force from obstacles) with attractive force towards previous new node of one of the trees alternatively.
 
 1. [Optimal path planning in cluttered environment using RRT\*-AB](https://link.springer.com/article/10.1007/s11370-017-0236-7)
     - Claim: Improves upon Informed-RRT\*
@@ -140,12 +150,6 @@
     - Extends RRT\*N to 3D environments.
     - Samples from a normal distribution along a straight line connecting the start and goal configurations.
     - For dynamic obstacles, a path is initially found, then the parts of the path that would collide with the dynamic obstacle are removed and a new path is found between the cut off points. 
-
-1. [**Biased Sampling Potentially Guided Intelligent Bidirectional RRT\* Algorithm for UAV Path Planning in 3D Environment**](https://www.hindawi.com/journals/mpe/2019/5157403/)
-    - Claim: Improves upon Potentially Guided Bidirectional RRT\*
-    - Note: RGD in previous work is not exactly gradient of APF. It is gradient of attractive force towards goal/start which stops whenever node reaches close to obstacle.
-    - First a sampling bias (Bi-bias) is applied on the random sample. Bi-bias moves the random sample towards the previous new node of either tree A or tree B (alternatively).
-    - Next it applies APF (which includes repulsive force from obstacles) with attractive force towards previous new node of one of the trees alternatively.
 
 1. [An Improved RRT* Path Planning Algorithm for Service Robot, May 2020](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/9085226)
     - Simialr to RRT\*-AB
