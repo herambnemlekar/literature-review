@@ -58,10 +58,9 @@
 	- Prior work showed that actions were generated directly from the visual properties of the stimuli and not necessarily from semantic knowledge.
 	- Results: (a) participants are sensitive to whether objects are positioned correctly for their own actions, (b) the position information is coded within an egocentric reference frame, (c) the critical representation involved is visual and not semantic, and (d) the effects are enhanced by a sense of agency.
 
-1. [Does selecting one visual object from several require inhibition of the actions associated with nonselected objects?]
-	- 
+1. Does selecting one visual object from several require inhibition of the actions associated with nonselected objects?
 
-1. [Actions or Hand-Object Interactions? Human Inferior Frontal Cortex and Action Observation]()
+1. Actions or Hand-Object Interactions? Human Inferior Frontal Cortex and Action Observation
 
 1. [What do 15,000 object categories tell us about classifying and localizing actions?, 2015](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Jain_What_do_15000_2015_CVPR_paper.pdf)
 	- Contributions: (i) In-depth study of encoding objects for actions. (ii) Show that objects matter for actions. Combining object information with motion improves action classification. Especially objects that are close to the action. (iii) Establish that actions have object preferences. **(iv)** Reveal that object-action relations are generic, allows to transfer these relationships from the one domain to the other. (v) Objects when combined with motion, improve the state-of-the-art for both action classification and localization.
@@ -70,7 +69,6 @@
 	- Future work: Use object locations instead of just detecting object presence.
 
 1. [Spatial-Aware Object Embeddings for Zero-Shot Localization and Classification of Actions](https://openaccess.thecvf.com/content_ICCV_2017/papers/Mettes_Spatial-Aware_Object_Embeddings_ICCV_2017_paper.pdf)
-	- 
 
 1. [On the relations between action planning, object identification, and motor representations of observed actions and objects, Mar 2008]
 
@@ -78,6 +76,15 @@
 
 1. [Classifying Actions and Measuring Action Similarity by Modeling the Mutual Context of Objects and Human Poses]
 
+## Relations between objects
+1. Family Resemblances: Studies in the Internal Structure of Categories
+
+1. [EGAD! An Evolved Grasping Analysis Dataset for Diversity and Reproducibility in Robotic Manipulation](https://ieeexplore-ieee-org.libproxy1.usc.edu/stamp/stamp.jsp?tp=&arnumber=9085936)
+	- Compositional Pattern Producing Networks (CPPNs) used to generate 3D shapes. CPPNs are randomly initialized and then *evolved* by randomly adding and removing network nodes and connections, and changing weights, biases and activation functions.
+	- At each iteration, a population is randomly sampled from the search space to undergo evolution and produce a new population of objects, which are subsequently evaluated and assigned to cells in the search space.
+	- Diversity between the objects is measured using the Topology Matching metric based on Multiresolutional Reeb Graphs (MRGs) which provides a shape similarity score between two object meshes.
+
+1. [Topology Matching for Fully Automatic Similarity Estimation of 3D Shapes](https://dl-acm-org.libproxy2.usc.edu/doi/pdf/10.1145/383259.383282)
 
 ## Relevant Prof. SK Gupta papers
 
