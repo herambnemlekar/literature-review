@@ -61,12 +61,15 @@
 
 # Motion Planning: RRT
 
-### Real-world application
 1. An integrated approach to inverse kinematics and path planning for redundant manipulators
 
-### Summary
 1. [Motion Planning and Obstacle Avoidance](https://link.springer.com/chapter/10.1007/978-3-319-32552-1_47)
     - This is a chapter of a rather recent(2016) book that includes state-of-the-art algorithms on robot motion planning and obstacle avoidance.
+
+1. [Rapidly-Exploring Random Vines (RRV) for Motion Planning in Configuration Spaces with Narrow Passages](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/8460186)
+    - Improved RRT to work better in narrow corridors.
+    - Expands far less nodes than RRT or RRT connect and is significantly faster. From the experiments it seems that the cost is that is produces sub-optimal paths that are far worse than those produced by RRT.
+    - Need to read more in depth.
 
 ## Cost-based RRT
 1. [Cost  Based  Planning  with  RRT  in  Outdoor  Environments](https://ieeexplore.ieee.org/abstract/document/4651052?casa_token=Ny5AFrGl6BgAAAAA:_nAUBZRKTWI8RJ2OAo2VLKRWRBRu10L5R4JTfcET2MvZu-Lb_uLk7oCzWbjU_RsFloacUvcYeg)
@@ -118,13 +121,22 @@
 
 1. [Potential and Sampling Based RRT Star for Real-Time Dynamic Motion Planning Accounting for Momentum in Cost Function]
 
-1. [Bidirectional Potential Guided RRT* for Motion Planning](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=8763966)
+1. [Intelligent bidirectional rapidly-exploring random trees for optimal motion planning in complex cluttered environments](https://www-sciencedirect-com.libproxy1.usc.edu/science/article/pii/S0921889015000317)
+
+1. [Bidirectional Potential Guided RRT\* for Motion Planning](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=8763966)
     - Claim: Suitable for narrow channels
     - Similar to P-RRT\*, randomized gradient descent (RGD) used to shift random sample along gradient. 
     - The target for attractive field for each of the two trees is not mentioned.
 
-1. [Potentially guided bidirectionalized RRT* for fast optimal path planning in cluttered environments](https://www.sciencedirect.com/science/article/pii/S0921889017309387)
-    -
+1. [Potentially guided bidirectionalized RRT\* for fast optimal path planning in cluttered environments](https://www.sciencedirect.com/science/article/pii/S0921889017309387)
+    - Bi-directional potential gradient (BPG) applied on random sample.
+    - At every even iteration the random sample is guided towards the goal if it is not too close to the nearest obstacle. Similarly at the odd iteration, the random sample is guided towards the start provided that the random sample is not within a certain distance of the nearest obstacle.
+
+1. [**Biased Sampling Potentially Guided Intelligent Bidirectional RRT\* Algorithm for UAV Path Planning in 3D Environment**](https://www.hindawi.com/journals/mpe/2019/5157403/)
+    - Claim: Improves upon Potentially Guided Bidirectional RRT\*
+    - Note: RGD in previous work is not exactly gradient of APF. It is gradient of attractive force towards goal/start which stops whenever node reaches close to obstacle.
+    - First a sampling bias (Bi-bias) is applied on the random sample. Bi-bias moves the random sample towards the previous new node of either tree A or tree B (alternatively).
+    - Next it applies APF (which includes repulsive force from obstacles) with attractive force towards previous new node of one of the trees alternatively.
 
 1. [Optimal path planning in cluttered environment using RRT\*-AB](https://link.springer.com/article/10.1007/s11370-017-0236-7)
     - Claim: Improves upon Informed-RRT\*
@@ -138,12 +150,6 @@
     - Extends RRT\*N to 3D environments.
     - Samples from a normal distribution along a straight line connecting the start and goal configurations.
     - For dynamic obstacles, a path is initially found, then the parts of the path that would collide with the dynamic obstacle are removed and a new path is found between the cut off points. 
-
-1. [**Biased Sampling Potentially Guided Intelligent Bidirectional RRT\* Algorithm for UAV Path Planning in 3D Environment**](https://www.hindawi.com/journals/mpe/2019/5157403/)
-    - Claim: Improves upon Potentially Guided Bidirectional RRT\*
-    - Note: RGD in previous work is not exactly gradient of APF. It is gradient of attractive force towards goal/start which stops whenever node reaches close to obstacle.
-    - First a sampling bias (Bi-bias) is applied on the random sample. Bi-bias moves the random sample towards the previous new node of either tree A or tree B (alternatively).
-    - Next it applies APF (which includes repulsive force from obstacles) with attractive force towards previous new node of one of the trees alternatively.
 
 1. [An Improved RRT* Path Planning Algorithm for Service Robot, May 2020](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/9085226)
     - Simialr to RRT\*-AB
@@ -165,7 +171,7 @@
 1. [A Survey of Asymptotically Optimal Sampling-based Motion Planning Methods, Sep 2020](https://arxiv.org/pdf/2009.10484.pdf)
     - [Adaptively Informed Trees (AIT\*): Fast Asymptotically Optimal Path Planning through Adaptive Heuristics](https://arxiv.org/pdf/2002.06599.pdf)
 
-### Artificial Potential Field
+## Artificial Potential Field
 1. [An Improved Artificial Potential Field Method Based on DWA and Path Optimization](https://ieeexplore.ieee.org/document/8996014)
     - Use Dynamic Window Approach to solve local minima problem of APF
 2. [Trajectory Optimization of Pickup Manipulator in Obstacle Environment Based on Improved Artificial Potential Field Method](https://www.mdpi.com/2076-3417/10/3/935)
@@ -180,15 +186,7 @@
 5. [6-DOF Robotic Obstacle Avoidance Path Planning Based on Artificial Potential Field Method](https://ieeexplore.ieee.org/abstract/document/8768792)
     - Similar to the apple picking paper, but is better written : )
 
-
-### RRT related
-1. [Rapidly-Exploring Random Vines (RRV) for Motion Planning in Configuration Spaces with Narrow Passages](https://ieeexplore-ieee-org.libproxy1.usc.edu/document/8460186)
-    - Improved RRT to work better in narrow corridors.
-    - Expands far less nodes than RRT or RRT connect and is significantly faster. From the experiments it seems that the cost is that is produces sub-optimal paths that are far worse than those produced by RRT.
-    - Need to read more in depth.
-
-
-### Others
+## Others
 1. [Robotic Path Planning Based on Improved Ant Colony Algorithm](https://link.springer.com/chapter/10.1007/978-3-030-22796-8_37)
     - Interesting method but only applied to 2D discrete space
     - Doesn't seem to be applicable since we have a continuous space
@@ -198,7 +196,7 @@
 3. [Path planning and obstacle avoidance approaches for robot arm](https://ieeexplore.ieee.org/document/8105619)
     - Use of Non Uniform Rational B-splines to make the path more smooth. 
 
-### Benchmarks for Motion Planners
+## Benchmarks for Motion Planners
 1. [Comparing different sampling-based motion planners in multiple configuration spaces](https://www.diva-portal.org/smash/get/diva2:1214377/FULLTEXT01.pdf)
 
 1. [SR-RRT: Selective retraction-based RRT planner](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6224928)
