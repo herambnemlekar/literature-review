@@ -1,6 +1,12 @@
 ## Preferences in human-robot collaboration
 
-1. [Preference-Based Assistance Prediction for Human–Robot Collaboration Tasks](https://alessandro.ronc.one/papers/2018_Grigore_IROS_assistance_prediction.pdf)
+1. [Warmth and Competence to Predict Human Preference of Robot Behavior in Physical Human-Robot Interaction](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=9223478)
+	- Social cognition.
+	- Found that Warmth and Competence, among all RoSAS (Robotics Social Attribute Scale) dimensions and Godspeed dimensions (Animacy, Anthromorphism, Likeability, Perceived Intelligence and Perceived Safety), are most important predictors for human preferences between different robot behaviours.
+	- 
+
+1. [Preference-Based Assistance Prediction for Human–Robot Collaboration Tasks](https://alessandro.ronc.one/papers/2018_Grigore_IROS_assistance_pre
+diction.pdf)
 	- Supportive actions are separate from task actions
 	- Users annotate their preferred supportive behabiours
 	- Preference variables dependent on hidden state of task
