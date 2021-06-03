@@ -1,14 +1,24 @@
+## Factors affecting human preferences
+1. 
+
+2. Act identities bear systematic relations to one another in an organized cognitive represention of the action-the action's identity structure. An identity structure is essentially a hierarchical arrangement of an action's various identities. Lower level identities in this hierarchy convey the details or specifics of the action and so indicate how the action is done. Higher level identities convey a more general understanding of the action, indicating why the action is done or what its effects and implications are. Relative to low-level identities, higher level identities tend to be less movement defined and more abstract and more abstract and to provide a more comprehensive understanding of the action.
+
+### Papers that explore, study and analyse factors affecting human behaviour
+- 
+
 ## Preferences in human-robot collaboration
 
 1. [Warmth and Competence to Predict Human Preference of Robot Behavior in Physical Human-Robot Interaction](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=9223478)
-	- Social cognition.
+	- Social cognition. Which robot a person would choose to interact with again, if given a choice?
+	- Limitations in prior work: 1) In Godspeed dimensions, Animacy and Anthromorphism load onto each other. 2) Perception of robot images may be different than its embodiment.
+	- Motivating work: People perceived as warm and competent elicit positive experiences. 
+	- Investigate if the dimensions Warmth and Competence are useful for physical, embodied interaction studies.
 	- Found that Warmth and Competence, among all RoSAS (Robotics Social Attribute Scale) dimensions and Godspeed dimensions (Animacy, Anthromorphism, Likeability, Perceived Intelligence and Perceived Safety), are most important predictors for human preferences between different robot behaviours.
-	- 
 
 1. [Preference-Based Assistance Prediction for Human–Robot Collaboration Tasks](https://alessandro.ronc.one/papers/2018_Grigore_IROS_assistance_pre
 diction.pdf)
 	- Supportive actions are separate from task actions
-	- Users annotate their preferred supportive behabiours
+	- Users annotate their preferred supportive behaviours
 	- Preference variables dependent on hidden state of task
 	
 1. [Towards Learning to Handle Deviations using User Preferences in a Human Robot Collaboration Scenario](https://pervasive.uni-klu.ac.at/BR/pubs/2016/Akkaladevi_IHCI2016.pdf)
