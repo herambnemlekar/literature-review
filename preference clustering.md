@@ -1,5 +1,10 @@
 ## Preferences in human-robot collaboration
 
+1. [Preference Learning in Assistive Robotics: Observational Repeated Inverse Reinforcement Learning](http://proceedings.mlr.press/v85/woodworth18a/woodworth18a.pdf)
+	- Current preference learning techniques lack the ability to inferlong-term, task-independent preferences in realistic, interactive, incomplete-information settings.
+	- Observational Repeated Inverse Reinforcement Learning (ORIRL), the robot observes the user completing multiple tasks in which the user selects a set of actions.
+	- 
+
 1. [Warmth and Competence to Predict Human Preference of Robot Behavior in Physical Human-Robot Interaction](https://ieeexplore-ieee-org.libproxy2.usc.edu/stamp/stamp.jsp?tp=&arnumber=9223478)
 	- Social cognition.
 	- Found that Warmth and Competence, among all RoSAS (Robotics Social Attribute Scale) dimensions and Godspeed dimensions (Animacy, Anthromorphism, Likeability, Perceived Intelligence and Perceived Safety), are most important predictors for human preferences between different robot behaviours.
