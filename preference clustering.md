@@ -1,7 +1,40 @@
 ## Factors affecting human preferences
-1. 
+1. [Identification and validation of cognitive design principles for automated generation of assembly instructions](https://dl.acm.org/doi/abs/10.1145/989863.989917)
+	- Creates computer-generated instructions for assembly lines, compares it to hand-designed instructions. The user chooses between the two.
+	- This paper would be interesting because one could compare the computer generated and hand-designed instructions to see what specific differences there are, and therefore learn about user preference.
 
-2. Act identities bear systematic relations to one another in an organized cognitive represention of the action-the action's identity structure. An identity structure is essentially a hierarchical arrangement of an action's various identities. Lower level identities in this hierarchy convey the details or specifics of the action and so indicate how the action is done. Higher level identities convey a more general understanding of the action, indicating why the action is done or what its effects and implications are. Relative to low-level identities, higher level identities tend to be less movement defined and more abstract and more abstract and to provide a more comprehensive understanding of the action.
+2. [Cognitive aspects affecting Human Performance in Manual Assembly](https://www.google.com/books/edition/Advances_in_Manufacturing_Technology_XXX/AhjpDAAAQBAJ?hl=en&gbpv=1&dq=factors+affecting+human+performance+assembly+manufacturing&pg=PA231&printsec=frontcover)
+	- This paper talks about how human performance deteriorates as they become fatigued throughout the building process, and assesses the cognitive effects of this.
+	- Based on how fatigued a human becomes, a robot would need to be more/less involved in holding a certain part or fetching a part from a storage room.
+
+3. [Quality improvement in manufacturing through human performance enhancement](https://www.emerald.com/insight/content/doi/10.1108/EUM0000000005713/full/html)
+	- This article talks about the importance of ergonomics in a work environment. Similar to the previous paper, this one explores the different ways that a robot could most efficiently help a human in a workplace environment.
+
+4. [Modeling and Control of Trust in Human-Robot Collaborative Manufacturing](https://link.springer.com/chapter/10.1007/978-1-4899-7668-0_7)
+	- This is also related to the previous two papers, where they predict the amount of work the robot needs to do based on how much of a 9 hour work day has passed.
+
+5. [An integrated framework for human-robot collaborative assembly in hybrid manufacturing cells](https://ieeexplore.ieee.org/abstract/document/7743441)
+	- This paper talks about the trust factors involved in robots working with humans in the workplace. If the worker does not trust the robot as much, it will make it do less work, or have it assist from far away.
+	- This factor can affect how much the robot is involved in each assembly task.
+
+6. [Collaborative manufacturing with physical human–robot interaction](https://www.sciencedirect.com/science/article/abs/pii/S0736584515301769)
+	- Cobot: a robot that assists people with various tasks
+	- This paper describes a successful way of implementing robots into a workforce environment. It describes how the working strain of the worker decreases as the robot helps more.
+
+7. [Modelling human performance within an automotive engine assembly line](https://link.springer.com/article/10.1007%2Fs00170-012-4714-y)
+	- Walking worker: worker that does many tasks (like the ones we are targeting)
+	- Study analyzes the effects of a robot assisting a worker who performs multiple tasks.
+
+8. [Optimised scheduling in human–robot collaboration – a use case in the assembly of printed circuit boards](https://www.tandfonline.com/doi/full/10.1080/00207543.2018.1470695)
+	- This study aims to create a linear distribution of the number of tasks a user does versus the number of tasks the robot does.
+
+9. [Working with Walt: How a Cobot Was Developed and Inserted on an Auto Assembly Line](https://ieeexplore.ieee.org/abstract/document/8360084)
+	- This article references a study where robots were used in assistance at an Audi car manufacturer. It would be interesting to read about what factors they took into account when they deployed these robots.
+
+10. [The Comfort Zone Concept in a Human-Robot Cooperative Task](https://www.google.com/books/edition/Precision_Assembly_in_the_Digital_Age/W_CBDwAAQBAJ?hl=en&gbpv=1&dq=human+preference+and+robot+needs+assembly+manufacturing&pg=PA82&printsec=frontcover)
+	- This paper contains a useful table with links to different papers relating to this research. It has links to psychology, cognitive aspects, cognitive robotics and automation, and human-robot interaction papers which could be useful for this research.
+
+1. Act identities bear systematic relations to one another in an organized cognitive represention of the action-the action's identity structure. An identity structure is essentially a hierarchical arrangement of an action's various identities. Lower level identities in this hierarchy convey the details or specifics of the action and so indicate how the action is done. Higher level identities convey a more general understanding of the action, indicating why the action is done or what its effects and implications are. Relative to low-level identities, higher level identities tend to be less movement defined and more abstract and more abstract and to provide a more comprehensive understanding of the action.
 
 ### Papers that explore, study and analyse factors affecting human behaviour
 - 
