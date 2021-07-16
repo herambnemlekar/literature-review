@@ -92,3 +92,8 @@
 	- 4 kinects run on 4 local machines. For each kinect, a seperate Kalman filter is used for each of the 20 joint. Therefore the information from the 4x20 kalman filters is sent to a common server where particle filters are used to fuse the information of the 4 kinects for each joint.
 
 1. [Design of Hybrid Cells to Facilitate Safe and Efficient Human–Robot Collaboration During Assembly Operations](https://asmedigitalcollection-asme-org.libproxy1.usc.edu/computingengineering/article/18/3/031004/367978/Design-of-Hybrid-Cells-to-Facilitate-Safe-and)
+	
+	
+## Papers about Transfer Learning in assembly tasks
+1. [Real-Time Assembly Operation Recognition with Fog Computing and Transfer Learning for Human-Centered Intelligent Manufacturing](https://www.sciencedirect.com/science/article/pii/S2351978920315833)
+	
