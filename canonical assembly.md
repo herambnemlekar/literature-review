@@ -96,4 +96,9 @@
 	
 ## Papers about Transfer Learning in assembly tasks
 1. [Real-Time Assembly Operation Recognition with Fog Computing and Transfer Learning for Human-Centered Intelligent Manufacturing](https://www.sciencedirect.com/science/article/pii/S2351978920315833)
+	- Task: assembling a desktop CNC carving machine;
+	- Using video frames from multiple cameras as input data. Pretrained model on ImageNet dataset. After the source model is trained, a portion of its architecture along with the trained weights is frozen and transferred to a target domain. 
+	- Model: DenseNet > VGG > ResNet
+
+2.
 	
