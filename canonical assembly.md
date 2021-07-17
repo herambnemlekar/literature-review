@@ -100,5 +100,8 @@
 	- Using video frames from multiple cameras as input data. Pretrained model on ImageNet dataset. After the source model is trained, a portion of its architecture along with the trained weights is frozen and transferred to a target domain. 
 	- Model: DenseNet > VGG > ResNet
 
-2.
-	
+2. [TRANS-AM:  Transfer  Learning  by  Aggregating  Dynamics  Modelsfor  Soft  Robotic  Assembly](https://www.researchgate.net/profile/Kazutoshi-Tanaka/publication/350192394_TRANS-AM_Transfer_Learning_by_Aggregating_Dynamics_Models_for_Soft_Robotic_Assembly/links/6055a343299bf17367552f81/TRANS-AM-Transfer-Learning-by-Aggregating-Dynamics-Models-for-Soft-Robotic-Assembly.pdf)
+	- Task: peg-in-hole task. Various hole orientation. Runyu: Change of environment is small
+	- Transfer reinforcement learning by Aggregating dynamics Models. Quickly adapt a new environment setup by leveraging information acquired from source environments. 
+	- The key idea is then to collect and utilize a collection of dynamics models acquired from source environments (i.e., source dynamics models) for learning a state-transition dynamics of the target environment, rather than collecting source samples or policies that existing model-free transfer RL used.
+	- Model: standard three-layer multilayer perception (MLP) models.
