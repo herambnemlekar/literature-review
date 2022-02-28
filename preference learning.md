@@ -36,9 +36,6 @@
 
 1. Act identities bear systematic relations to one another in an organized cognitive represention of the action-the action's identity structure. An identity structure is essentially a hierarchical arrangement of an action's various identities. Lower level identities in this hierarchy convey the details or specifics of the action and so indicate how the action is done. Higher level identities convey a more general understanding of the action, indicating why the action is done or what its effects and implications are. Relative to low-level identities, higher level identities tend to be less movement defined and more abstract and more abstract and to provide a more comprehensive understanding of the action.
 
-### Papers that explore, study and analyse factors affecting human behaviour
-- 
-
 ## Preferences in human-robot collaboration
 
 1. [Preference Learning in Assistive Robotics: Observational Repeated Inverse Reinforcement Learning](http://proceedings.mlr.press/v85/woodworth18a/woodworth18a.pdf)
