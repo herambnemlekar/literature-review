@@ -8,7 +8,8 @@
 
 ## Relevant
 1. Keep it Simple: Data-efficient Learning for Controlling Complex Systems with Simple Models (2021)
-	- 
+	- perception system φ that maps images to simple model states (even if the image is generated from the complex system)
+	- estimate how well a simple model state approximates the complex system at a given state.
 
 
 ## Prediction of human motion
